@@ -16,6 +16,7 @@ public class Ticket {
         this.title = title;
     }
 
+    
 
     // todo: методы get и set для остальных полей
 
