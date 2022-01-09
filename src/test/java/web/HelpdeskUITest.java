@@ -3,10 +3,12 @@ package web;
 import models.Ticket;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.PageFactory;
+import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-import pages.AbstractPage;
+import pages.*;
 
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
@@ -32,9 +34,38 @@ public class HelpdeskUITest {
     }
 
     @Test
-    public void createTicketTest() {
+    public void createTicketTest() throws InterruptedException {
         // Заполняем объект класс Ticket необходимыми тестовыми данными
-        ticket = buildNewTicket();
+
+        MainPage main = new MainPage();
+
+        driver.get("https://at-sandbox.workbench.lanit.ru/");
+        CreateTicketPage newTicket = PageFactory.initElements(driver,CreateTicketPage.class);
+
+        main.mainMenu().newTicket();
+
+        Ticket ticket = new Ticket();
+        ticket.setTitle("title");
+        ticket.setDescription("this is ring");
+        ticket.setDue_date("7");
+        ticket.setPriority(5);
+        ticket.setQueue(1);
+        ticket.setSubmitter_email("aaa@mail.ru");
+
+        newTicket.createTicket(ticket);
+
+        LoginPage login = new LoginPage();
+        main.mainMenu().jumpOnLoginPage();
+
+        login.login(System.getProperty("user"),System.getProperty("password"));
+
+        main.mainMenu().searchTicket(ticket);
+        TicketsPage findTicket = new TicketsPage();
+        findTicket.openTicket();
+
+        TicketPage findColumn = new TicketPage();
+
+        Assert.assertEquals(findColumn.getEmail(),ticket.getSubmitter_email(),"не равны");
 
         // todo: открыть главную страницу
         // todo: создать объект главной страницы и выполнить шаги по созданию тикета
@@ -64,5 +95,4 @@ public class HelpdeskUITest {
         // Закрываем все окна браузера и освобождаем ресурсы
         driver.quit();
     }
-
 }
