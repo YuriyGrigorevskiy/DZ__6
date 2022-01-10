@@ -65,7 +65,9 @@ public class HelpdeskUITest {
 
         TicketPage findColumn = new TicketPage();
 
-        Assert.assertEquals(findColumn.getEmail(),ticket.getSubmitter_email(),"не равны");
+      Assert.assertEquals(findColumn.getPriority(),ticket.getPriority(),"не равны");
+      Assert.assertEquals(findColumn.getEmail(),ticket.getSubmitter_email(),"не равны");
+      Assert.assertEquals(findColumn.getDescription(),ticket.getDescription(),"не равны");
 
         // todo: открыть главную страницу
         // todo: создать объект главной страницы и выполнить шаги по созданию тикета

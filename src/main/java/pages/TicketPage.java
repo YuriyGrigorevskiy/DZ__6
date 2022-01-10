@@ -38,6 +38,9 @@ public class TicketPage extends HelpdeskBasePage {
     @FindBy(xpath = "//th[text()='Total time spent']/following-sibling::td[1]")
      WebElement total_time_spend;
 
+    @FindBy(xpath = "//*[@id='ticket-description']/p")
+    WebElement description;
+
     // todo: остальные поля тикета
 
     public TicketPage() {
@@ -46,7 +49,7 @@ public class TicketPage extends HelpdeskBasePage {
 
     /** Получить имя тикета */
     public String getTicketTitle() {
-        return ticketTitle.getText().trim();
+        return ticketTitle.getText();
     }
 
     /** Получить адрес почты */
@@ -59,16 +62,18 @@ public class TicketPage extends HelpdeskBasePage {
         return queue.getText();
     }
 
+    public String getDescription(){ return description.getText();
+    }
+
     public String getAssigned_to(){
         return assigned_to.getText();
     }
 
-    public String getDue_date(){
-        return queue.getText();
+    public String getDue_date(){ return due_date.getAttribute("days");
     }
 
     public Integer getPriority(){
-        return Integer.parseInt(queue.getText());
+        return Integer.parseInt(priority.getText().replaceAll("\\D+",""));
     }
 
     public String getDependencies(){
@@ -79,8 +84,7 @@ public class TicketPage extends HelpdeskBasePage {
         return Integer.parseInt(copies_to.getText());
     }
 
-    public String getSubmitted_on(){
-        return queue.getText();
+    public String getSubmitted_on(){ return submitted_on.getText();
     }
 
     public String getTotal_time_spend(){
@@ -105,4 +109,6 @@ public class TicketPage extends HelpdeskBasePage {
                 // Обрезаем лишние пробелы
                 .trim();
     }
+
+
 }
