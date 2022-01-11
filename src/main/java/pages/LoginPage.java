@@ -18,8 +18,6 @@ public class LoginPage extends HelpdeskBasePage {
     @FindBy (xpath = "//*[@id='content-wrapper']/div/div/div/div[2]/form/input[1]")
     private WebElement LoginButton;
 
-    // todo: элементы страницы
-
     public LoginPage() {
         PageFactory.initElements(driver, this);
     }
@@ -35,9 +33,5 @@ public class LoginPage extends HelpdeskBasePage {
         InputName.sendKeys(user);
         InputPassword.sendKeys(password);
         LoginButton.click();
-
-        // todo: заполнить поля и нажать кнопку авторизации
     }
-    // todo: методы работы с элементами
-
 }

@@ -69,27 +69,7 @@ public class HelpdeskUITest {
       Assert.assertEquals(findColumn.getEmail(),ticket.getSubmitter_email(),"не равны");
       Assert.assertEquals(findColumn.getDescription(),ticket.getDescription(),"не равны");
 
-        // todo: открыть главную страницу
-        // todo: создать объект главной страницы и выполнить шаги по созданию тикета
-        // todo: перейти к странице авторизации и выполнить вход
-        // todo: найти созданный тикет и проверить поля
-
-        // Закрываем текущее окно браузера
         driver.close();
-    }
-
-    /**
-     * Создаём и заполняем объект тикета
-     *
-     * @return заполненный объект тикета
-     */
-    protected Ticket buildNewTicket() {
-        Ticket ticket = new Ticket();
-
-        ticket.setTitle("");
-        // todo: заполнить остальные необходимые поля тикета
-
-        return ticket;
     }
 
     @AfterTest

@@ -19,23 +19,16 @@ public class MainMenu {
             By searchBtn = (By.xpath("//*[@class='btn btn-primary']"));
             By loginButtonAfterCreateTicket = (By.xpath("//*[@id='bg-dark']/nav/ul"));
 
-
-    // todo: остальные элементы меню
-
     public MainMenu(WebDriver driver) {
         this.driver = driver;
     }
 
     public void newTicket() {
         driver.findElement(newTicketBtn).click();
-
-        // todo: нажать кнопку создания нового тикета
     }
 
     public void logIn(){
         driver.findElement(loginBtn).click();
-
-        // todo: нажать кнопку авторизации
     }
 
     public void searchTicket(Ticket ticket) {
@@ -47,15 +40,11 @@ public class MainMenu {
         то можно вернуть сам класс и вызвать следующий метод через точку. */
     public MainMenu setSearch(String text) {
         driver.findElement(searchTitleColumn).sendKeys(text);
-
-        // todo: ввести значение в поле поиска
         return this;
     }
 
     public void search() {
         driver.findElement(searchBtn).click();
-
-        // todo: нажать кнопку поиска
     }
 
     public void jumpOnLoginPage() {

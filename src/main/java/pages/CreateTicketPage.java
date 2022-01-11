@@ -85,40 +85,32 @@ public class CreateTicketPage extends HelpdeskBasePage {
                 a.click();
             }
         }
-
-        // todo: заполнить поле
     }
 
     public void setQueue(Integer number) {
         Select s = new Select(TicketQueue);
         s.selectByValue(String.valueOf(number));
-        // todo: заполнить поле
     }
 
     public void setPriority(int number) {
         Select s = new Select(TicketPriority);
         s.selectByValue(String.valueOf(number));
-        // todo: заполнить поле
     }
 
     public void setEmail(String text) {
         TicketSubmitEmail.sendKeys(text);
-        // todo: заполнить поле
     }
 
     public void setKbitem(int number) {
         TicketAttachmentFile.sendKeys(String.valueOf(number));
-        // todo: заполнить поле
     }
 
     public void setAssigned_to(String text){
         TicketAssigned_to.sendKeys(text);
     }
-    // todo: методы заполнения остальных полей
 
     /** Зажатие кнопки "Submit Ticket" */
     public void createTicketBtn() {
         SubmitTicket.click();
-        // todo: нажать кнопку создания задания
     }
 }

@@ -90,7 +90,6 @@ public class Ticket {
         this.assigned_to = assigned_to;
     }
 
-    // todo: методы get и set для остальных полей
 
     @Override
     public boolean equals(Object o) {
@@ -111,7 +110,4 @@ public class Ticket {
     public int hashCode() {
         return Objects.hash(title, queue, status, priority, description, due_date, submitter_email, kbitem);
     }
-
-
-    // todo: equals и hashCode
 }

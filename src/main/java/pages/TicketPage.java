@@ -91,9 +91,6 @@ public class TicketPage extends HelpdeskBasePage {
         return total_time_spend.getText();
     }
 
-
-    // todo: остальные методы получения значений полей
-
     /**
      * Получить значение элемента таблицы
      *
@@ -109,6 +106,4 @@ public class TicketPage extends HelpdeskBasePage {
                 // Обрезаем лишние пробелы
                 .trim();
     }
-
-
 }

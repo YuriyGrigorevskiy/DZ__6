@@ -14,8 +14,6 @@ public class TicketsPage extends HelpdeskBasePage {
     @FindBy (xpath = "//div[@class='tickettitle']/a")
     private WebElement TitleSearch;
 
-    // todo: элементы страницы поиска тикетов
-
     public TicketsPage() {
         PageFactory.initElements(driver, this);
     }
@@ -29,6 +27,5 @@ public class TicketsPage extends HelpdeskBasePage {
 //                a.click();
 //            }
         TitleSearch.click();
-        // todo: найти и открыть тикет
     }
 }
